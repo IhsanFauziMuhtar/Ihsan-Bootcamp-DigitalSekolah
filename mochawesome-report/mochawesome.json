@@ -1,0 +1,138 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-09-14T09:54:08.580Z",
+    "end": "2026-09-14T09:54:10.429Z",
+    "duration": 1849,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8ab0e0bf-ea35-4460-8e35-b9b39ebfa9bb",
+      "title": "",
+      "fullFile": "C:\\Tugas API Automation\\TestAPI\\apiTest.js",
+      "file": "\\TestAPI\\apiTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "60a918fb-7567-4bdf-9e02-c075dcbf4b01",
+          "title": "API Test",
+          "fullFile": "C:\\Tugas API Automation\\TestAPI\\apiTest.js",
+          "file": "\\TestAPI\\apiTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Add User Valid",
+              "fullTitle": "API Test Add User Valid",
+              "timedOut": false,
+              "duration": 811,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\n  \"https://belajar-bareng.onrender.com/api/add-user\",\n  {\n    headers: {\n      \"Content-Type\": \"application/json\",\n      authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzg5Mzc5Mjc5LCJleHAiOjE3ODkzODI4Nzl9.3dBt3L8L5NsGLCu-MwZbv_ZDnDMtOtokD2Wo68AzmcQ`,\n    },\n    method: \"POST\",\n    body: JSON.stringify({\n      username: \"kamisama\",\n      age: 35,\n    }),\n  }\n);\nexpect(response.status).to.equal(201);\nconst data = await response.json();\nexpect(data.message).to.include(\"User successfully added\");\ntoken = data.token;",
+              "err": {},
+              "uuid": "544418bd-baa0-4f59-8235-08201d80bb85",
+              "parentUUID": "60a918fb-7567-4bdf-9e02-c075dcbf4b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add User Invalid",
+              "fullTitle": "API Test Add User Invalid",
+              "timedOut": false,
+              "duration": 637,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await fetch(\n  \"https://belajar-bareng.onrender.com/api/add-user\",\n  {\n    headers: {\n      \"Content-Type\": \"application/json\",\n      authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzg5Mzc5Mjc5LCJleHAiOjE3ODkzODI4Nzl9.3dBt3L8L5NsGLCu-MwZbv_ZDnDMtOtokD2Wo68AzmcQ`,\n    },\n    method: \"POST\",\n    body: JSON.stringify({\n      username: \"kamisama\",\n      age: \"35\",\n    }),\n  }\n);\nexpect(response.status).to.equal(400);\nconst data = await response.json();\nexpect(data.message).to.include(\"Age must be numeric, not text!\");\ntoken = data.token;",
+              "err": {},
+              "uuid": "ccb12913-58ad-468c-b561-7d64a4a9f4f9",
+              "parentUUID": "60a918fb-7567-4bdf-9e02-c075dcbf4b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Get User",
+              "fullTitle": "API Test Get User",
+              "timedOut": false,
+              "duration": 395,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const start = Date.now();\nconst response = await fetch(\n  \"https://belajar-bareng.onrender.com/api/users\",\n  {\n    headers: {\n      \"Content-Type\": \"application/json\",\n      authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzg5Mzc4MzQxLCJleHAiOjE3ODkzODE5NDF9.yT2mZUGaYv5E5SNt--qTjhVe-1j9wbNvcVniJrnZkDw`,\n    },\n  }\n);\nexpect(response.status).to.equal(200);\nconst data = await response.json();\nexpect(data.users[1].username).to.equal(\"Rafis\");\n   \nconst duration = Date.now() - start;\nexpect(duration).to.be.below(700)",
+              "err": {},
+              "uuid": "bb4e0fb0-4e6c-48e1-8202-947e42238716",
+              "parentUUID": "60a918fb-7567-4bdf-9e02-c075dcbf4b01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "544418bd-baa0-4f59-8235-08201d80bb85",
+            "ccb12913-58ad-468c-b561-7d64a4a9f4f9",
+            "bb4e0fb0-4e6c-48e1-8202-947e42238716"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1843,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.8.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.0"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
